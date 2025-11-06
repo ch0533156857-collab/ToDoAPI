@@ -1,0 +1,38 @@
+## Build results
+bin/
+obj/
+
+## User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio files
+.vs/
+
+## Configuration
+appsettings.Development.json
+
+## Logs
+*.log
+logs/
+
+## Backup & cache files
+*.bak
+*.cache
+*.tmp
+*.swp
+
+## Packages
+*.nupkg
+packages/
+!packages/build/
+
+## Other
+*.dbmdl
+*.jfm
+
+# Optional: ignore launchSettings if it’s user-specific
+# launchSettings.json
