@@ -19,7 +19,7 @@ builder.Services.AddDbContext<ToDoDbContext>(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyMethod()
@@ -86,5 +86,7 @@ app.MapDelete("/tasks/{id}", async (int id, ToDoDbContext context) =>
     await context.SaveChangesAsync();
     return Results.NoContent();
 });
+
+app.UseCors("AllowAll");
 
 app.Run();
