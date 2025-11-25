@@ -8,10 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 // -----------------------------
 // 1️⃣ הוספת DbContext ל‑services
 // -----------------------------
+
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(
-        builder.Configuration.GetConnectionString("ToDoDB"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("ToDoDB"))
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 21))
     )
 );
 
