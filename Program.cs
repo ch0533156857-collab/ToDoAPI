@@ -12,7 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 21))
+        new MySqlServerVersion(new Version(8, 0, 21)),
+        mySqlOptions => mySqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(10),
+            errorNumbersToAdd: null
+        )
     )
 );
 
