@@ -32,6 +32,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseCors("AllowAll");
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
@@ -86,6 +88,5 @@ app.MapDelete("/tasks/{id}", async (int id, ToDoDbContext context) =>
     return Results.NoContent();
 });
 
-app.UseCors("AllowAll");
 
 app.Run();
