@@ -34,7 +34,6 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseCors();
 
 app.MapGet("/", () => "API is running! Go to /tasks to see the tasks.");
 
